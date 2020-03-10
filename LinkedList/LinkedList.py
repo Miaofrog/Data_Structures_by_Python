@@ -77,10 +77,10 @@ class LinkedList(object):
         return delNode.e
 
     def deleteFirst(self):
-        self.delete(0)
+        return self.delete(0)
 
     def deleteLast(self):
-        self.delete(self.__size - 1)
+        return self.delete(self.__size - 1)
 
     #查询链表中某个位置上的元素
     def get(self, index):
@@ -95,10 +95,10 @@ class LinkedList(object):
         return cur.e
 
     def getFirst(self):
-        self.get(0)
+        return self.get(0)
 
     def getLast(self):
-        self.get(self.__size - 1)
+        return self.get(self.__size - 1)
 
     #更新链表中某个位置的元素
     def set(self, index, newElem):

@@ -25,6 +25,20 @@ class LinkedList(object):
     def __init__(self):
         self.__dummyhead = self.__Node()  #虚拟头结点，初始next为空
         self.__size = 0
+        
+    #传入一个列表，返回一个链表,元素正序
+    def listToLinkedList(self, list):
+        if list is None or len(list) == 0:
+            raise ValueError("列表为空，无法构造链表！")
+
+        #尾插法构建链表
+        cur = self.__dummyhead
+        for i in range(0, len(list)):
+            newNode = self.__Node(list[i])
+            cur.next = newNode
+            cur = cur.next
+
+        return self.__dummyhead.next
 
     #获取链表元素个数
     def getSize(self):
@@ -119,22 +133,6 @@ class LinkedList(object):
                 return True
             prev = prev.next
         return False
-
-    # 删除虚拟头结点链表中指定元素
-    def deleteElem(self, e):
-        # 找到这个元素的前一个位置
-        prev = self.__dummyhead
-        while prev.next is not None:
-            if prev.next.e == e:
-                break
-            prev = prev.next
-
-        if prev.next is not None:  # 有元素e而不是遍历结束
-            # 删除元素e
-            delNode = prev.next  # 保存要删除的节点
-            prev.next = delNode.next
-            delNode.next = None
-            self.__size -= 1
 
 
     #打印输出链表

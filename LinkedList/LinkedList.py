@@ -95,6 +95,35 @@ class LinkedList(object):
 
     def deleteLast(self):
         return self.delete(self.__size - 1)
+    
+    # 删除虚拟头结点链表中指定元素，其实只删除了指定元素第一次出现的位置
+    def deleteElem(self, e):
+        # 找到这个元素的前一个位置
+        prev = self.__dummyhead
+        while prev.next is not None:
+            if prev.next.e == e:
+                break
+            prev = prev.next
+
+        if prev.next is not None:  # 有元素e而不是遍历结束
+            # 删除元素e
+            delNode = prev.next  # 保存要删除的节点
+            prev.next = delNode.next
+            delNode.next = None
+            self.__size -= 1
+
+    # 删除虚拟头结点链表中指定元素的所有结点
+    def deleteAllElem(self, elem):
+        #遍历链表
+        prev = self.__dummyhead
+        while prev.next is not None:
+            if prev.next.e == elem:  #找到就删除一个
+                delNode = prev.next  # 保存要删除的节点
+                prev.next = delNode.next
+                delNode.next = None
+                self.__size -= 1
+            else:
+                prev = prev.next
 
     #查询链表中某个位置上的元素
     def get(self, index):

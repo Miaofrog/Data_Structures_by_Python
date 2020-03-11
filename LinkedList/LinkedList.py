@@ -37,6 +37,7 @@ class LinkedList(object):
             newNode = self.__Node(list[i])
             cur.next = newNode
             cur = cur.next
+            self.__size += 1
 
         return self.__dummyhead.next
 

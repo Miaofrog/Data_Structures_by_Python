@@ -129,6 +129,12 @@ class Array(object):
     #删除第一个元素
     def deleteFirst(self):
         return self.delete(0)
+    
+    
+    #基于数组实现最大堆时要使用到交换两个位置的元素
+    def swap(self, i, j):
+        self.__data[i], self.__data[j] = self.__data[j], self.__data[i]
+        
 
     #打印输出
     def __str__(self):
